@@ -42,4 +42,9 @@ class Comment:
         self.__init__(2,author,message)
         self.save_comment()
 
-   
+    def edit_comment(self):
+        for x in comments:
+            if comments[x].id==self.id:
+                comments.pop(x)
+        new_message = str(input("Post new comment"))
+        self.message = new_message
