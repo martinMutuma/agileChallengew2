@@ -1,4 +1,4 @@
-
+from pip import __main__
 
 user_list = [
     {'name': 'admin',
@@ -8,13 +8,13 @@ user_list = [
      'last_Logged_in_at': 'ddkd'},
 
 ]
-
+logged_in_user= None
 
 def login():
     """Method to login user 
     
     Returns:
-        [True] -- [For a succeful login]
+        [True] -- [For a successful login]
     """
 
     username = username_prompt()
@@ -40,6 +40,7 @@ def validate_username_password(username, password):
     for user in user_list:
         if user['name'] == username and user['password'] == password:
             user['logged_in'] = True
+            logged_in_user= user
             return True
     print('Login error, user not found, please enter collect credentials')
     return False
@@ -104,4 +105,16 @@ def validate_password(password, username):
     return password
 
 
+def logout():
+    data = input("Do you want to logout? Y or N")
+    if data == "Y":
+        logged_in_user= None
+        print("Logged out")
+    elif data== "N":
+        print("login has been cancelled")
+    else:
+        print("Unknown option")
 
+
+if __name__=='__main__':
+    logout()
