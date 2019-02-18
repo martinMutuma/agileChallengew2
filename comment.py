@@ -48,3 +48,8 @@ class Comment:
                 comments.pop(x)
         new_message = str(input("Post new comment"))
         self.message = new_message
+
+    def delete_comment(self):
+        for x in comments:
+            if comments[x].id==self.id:
+                comments.pop(x)
